@@ -1,0 +1,325 @@
+/* page */
+
+#header {
+	visibility: visible;
+	height: 10%;
+	width: 100%;
+	background-color: white;
+	border-bottom: solid 2px grey;
+}
+
+#content {
+	height: 90%;
+	width: 100%;
+	background-color: white;
+	margin: 0px;
+	border-bottom: solid 2px red;
+}
+
+/* design */
+
+h1 {
+	color:#222;
+}
+
+a {
+	text-decoration: none;
+	color:blue;
+}
+
+a.active {
+	text-decoration: none;
+	color:#222;
+	font-weight: bold;
+}
+
+a.first-item {
+	margin-left: 100px;
+}
+
+.plus {
+	font-size: 800%;
+	font-weight: bold;
+}
+
+.plus-small {
+	font-size: 400%;
+	font-weight: bold;
+}
+
+.plus-tiny {
+	font-size: 200%;
+	font-weight: bold;
+}
+
+.close {
+	margin: 10px;
+	margin-right: 20px;
+	float: right;
+}
+
+.close-header {
+	float:left;
+	padding:10px;
+	font-size: 200%;
+}
+
+.menu {
+	visibility: hidden;
+	position: absolute;
+	padding:10px;
+	background-color:#eeeeee;
+	border:solid grey 2px;
+	font-size: 200%;
+	z-index:100;
+}
+
+.menu-container {
+	padding:10px;
+}
+
+.menu-list {
+	list-style-type:none;
+	margin:0px;
+	padding:0px;
+}
+
+.menu-item {
+	border:solid #eeeeee 2px;
+	margin:3px;
+	padding:3px;
+	background-color:#dddddd;
+	cursor: pointer;
+}
+.menu-cancel {
+	cursor: pointer;
+}
+
+/* header elements */
+.curp-header-name {
+	float:left;
+	margin:10px;
+}
+
+.curp-header-curriculum {
+	float:left;
+	margin:16px;
+	margin-left:20px;
+}
+
+.curp-header-course {
+	float:right;
+	margin:16px;
+	margin-right:20px;
+}
+
+/* content elements */
+.curp-content-left {
+	background-color:white;
+	float:left;
+	margin:0px;
+	width:10%;
+	height:99%;
+	border:solid #dddddd 2px;
+}
+
+.curp-content-center {
+	background-color:white;
+	float:left;
+	margin:0px;
+	width:auto;
+	width:69%;
+	height:99%;
+	overflow-y:auto;
+}
+
+.curp-content-right {
+	background-color:white;
+	float:right;
+	margin:0px;
+	height:99%;
+	width:20%;
+	border:solid #dddddd 2px;
+
+}
+
+.curp-section-header {
+	padding:10px;
+	background-color:#dddddd;
+}
+ 
+/* content: curriculum */
+.curp-content-curriculum-container {
+	margin:10px;
+	margin-left:20px;
+}
+
+.curp-content-curriculum-item {
+	float:left;
+	margin:10px;
+	width:100px;
+	height:150px;
+	border:solid grey 2px;
+	cursor: pointer;
+}
+
+/*
+.curp-content-curriculum-item a{
+    display:inline-block;
+	width:100%;
+	height:100%;
+}
+*/
+
+/* content: course */
+.curp-content-course-container {
+	margin:10px;
+}
+
+.curp-content-course-item {
+	margin:10px;
+	margin-bottom:30px;
+	width:600px;
+	/*height:100px;*/
+}
+
+.curp-content-course-item-title {
+	/* pointer-events used to be able to click on the underlying div */
+	pointer-events:none;
+	padding:10px;
+	color: white;
+	font-weight: bold;
+}
+
+.curp-content-course-item-description {
+	/* pointer-events used to be able to click on the underlying div */
+	pointer-events:none;
+	padding:10px;
+}
+
+.curp-content-course-new {
+	margin:10px;
+	font-size:200%;
+}
+
+.curp-content-course-table {
+	border-collapse: collapse;
+}
+	
+.curp-content-course-table, .curp-content-course-table > tbody > tr > td, .curp-content-course-table > thead > tr > th {
+	border: 1px solid #222;
+}
+
+.curp-content-course-table > thead {
+	background-color: grey;
+}
+
+.curp-content-course-table > tbody > tr > td, .curp-content-course-table > thead > tr > th {
+	padding: 5px;
+}
+
+.curp-content-course-table-seperator {
+	background-color: lightgrey;
+}
+
+/* content: week */
+.curp-content-week-container {
+	margin:10px;
+}
+
+.curp-week-new {
+	margin:10px 20px;
+}
+
+.curp-content-week-item {
+	margin:10px;
+	width:50px;
+	height:50px;
+	border:solid grey 2px;
+	cursor: pointer;
+}
+
+.curp-content-week-item-selected {
+	margin:10px;
+	width:50px;
+	height:50px;
+	border:solid red 2px;
+}
+
+/* content: card */
+.curp-content-card-list {
+	margin:10px;
+}
+
+.curp-content-card {
+	margin:10px;
+	padding:10px;
+	width:100px;
+	height:100px;
+}
+.curp-content-card a{
+    display:inline-block;
+	width:100%;
+	height:100%;
+	color:white;
+	font-weight:bold;
+}
+
+.curp-content-card-container {
+	margin:10px;
+	min-height:450px;
+	overflow-y:auto;
+}
+
+.curp-content-card-item {
+	float:left;
+	margin:10px;
+	padding:10px;
+	width:150px;
+	height:150px;
+	border:solid grey 2px;
+}
+.curp-content-card-item a{
+    display:inline-block;
+	width:100%;
+	height:100%;
+	color:white;
+	font-weight:bold;
+}
+
+.orange-card {
+	background-color:orange;
+}
+.blue-card {
+	background-color:blue;
+}
+.green-card {
+	background-color:green;
+}
+.grey-card {
+	background-color:grey;
+}
+.pink-card {
+	background-color:pink;
+}
+
+.orange-line {
+	border:solid orange 2px;
+}
+.blue-line {
+	border:solid blue 2px;
+}
+.green-line {
+	border:solid green 2px;
+}
+.grey-line {
+	border:solid grey 2px;
+}
+.pink-line {
+	border:solid pink 2px;
+}
+
+.curp-content-card-edit {
+	margin:10px;
+	font-size:200%;
+}
