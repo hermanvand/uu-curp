@@ -108,7 +108,6 @@
 			html = html + "<div class='curp-content-card grey-card'><a href='/Curp/cardNew?course=" + MCOW.Session.Response.param["course"]["id"] + "&color=grey'>Task</a></div>";
 			MCOW.Util.setHTML("COURSEEDIT-SCRIPT-LINKS",html);
 		</script>
-
 	</div>
 </div>
 <aside id="sidebar">

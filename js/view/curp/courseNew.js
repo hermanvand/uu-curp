@@ -17,7 +17,7 @@
 
 		<div class="curp-content-course-new">
 			<!-- 1. first run model, second mcow-transition-out on the view & third redirect -->
-			<form name="courseNewForm"><table>
+			<form name="courseNewForm" onsubmit="if (MCOW.Config['target'] == 'phonegap') { cordova.plugins.Keyboard.close(); }; return false"><table>
 			<tr><td>Name</td><td><input class="mcow-clickable" type="text" name="name"></td></tr>
 			<tr><td></td><td><a href="/Curp/courseNew?MCOW-transition=out&MCOW-redirect=/Curp/home">Ok</a></td></tr>
 			</table></form>

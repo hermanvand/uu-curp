@@ -2,18 +2,17 @@
 
 #header {
 	visibility: visible;
-	height: 10%;
+	height: 60px;
 	width: 100%;
 	background-color: white;
 	border-bottom: solid 2px grey;
 }
 
 #content {
-	height: 90%;
+	min-height: 100px;
 	width: 100%;
 	background-color: white;
 	margin: 0px;
-	border-bottom: solid 2px red;
 }
 
 /* design */
@@ -119,17 +118,17 @@ a.first-item {
 	float:left;
 	margin:0px;
 	width:10%;
-	height:99%;
-	border:solid #dddddd 2px;
+	height:100%;
+	border-right:solid #dddddd 2px;
 }
 
 .curp-content-center {
 	background-color:white;
 	float:left;
+	/*display: inline-block;*/
 	margin:0px;
-	width:auto;
 	width:69%;
-	height:99%;
+	height:100%;
 	overflow-y:auto;
 }
 
@@ -137,9 +136,9 @@ a.first-item {
 	background-color:white;
 	float:right;
 	margin:0px;
-	height:99%;
+	height:100%;
 	width:20%;
-	border:solid #dddddd 2px;
+	border-left:solid #dddddd 2px;
 
 }
 

@@ -18,7 +18,7 @@
 		</div>
 		<script type="text/javascript">
 			var html = "";
-			html = "<form name='courseEditNameForm'><table>";
+			html = "<form name='courseEditNameForm' onsubmit='if (MCOW.Config[\'target\'] == \'phonegap\') { cordova.plugins.Keyboard.close(); }; return false'><table>";
 			html = html + "<tr><td>Name</td><td><input class='mcow-clickable' type='text' name='name' value='" + MCOW.Session.Response.param["title"] + "'></td></tr>";
 			html = html + "<tr><td></td><td><a href='/Curp/courseEditName?course=" + MCOW.Session.Response.param["course"]["id"] + "&MCOW-transition=out&MCOW-redirect=" + encodeURIComponent("/Curp/home") + "'>Ok</a></td></tr>";
 			html = html + "</table></form>";
