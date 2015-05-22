@@ -130,8 +130,7 @@ a.first-item {
 	margin:0px;
 	width:79%;
 	height:100%;
-	overflow-x:hidden;
-	overflow-y:auto;
+	overflow-y:scroll;
 }
 
 .curp-content-right {
@@ -141,8 +140,7 @@ a.first-item {
 	height:100%;
 	width:20%;
 	border-left:solid #dddddd 2px;
-	overflow-x:hidden;
-	overflow-y:auto;
+	overflow-y:scroll;
 }
 
 .curp-section-header {
@@ -154,6 +152,7 @@ a.first-item {
 .curp-content-curriculum-container {
 	margin:10px;
 	margin-left:20px;
+	/*overflow-y:scroll;*/
 }
 
 .curp-content-curriculum-item {
@@ -178,6 +177,8 @@ a.first-item {
 	margin:10px;
 	/* compensate for the left-content */
 	margin-left:110px;
+	/*curp-content-center already overflows*/
+	/*overflow-y:scroll;*/
 }
 
 .curp-content-course-item {
@@ -271,7 +272,8 @@ a.first-item {
 
 .curp-content-card-container {
 	margin:10px;
-	min-height:450px;
+	height:390px;
+	/*min-height:450px;*/
 	overflow-y:auto;
 }
 

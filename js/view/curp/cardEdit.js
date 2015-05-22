@@ -37,7 +37,7 @@
 		<script type="text/javascript">
 			if (MCOW.Session.Response.param["type"] == "scenario") {
 				var currentCard = MCOW.Session.Response.param["course"]["wildcards"][MCOW.Session.Response.param["cardId"]]
-				var html = "<form name='cardEditForm' onsubmit='if (MCOW.Config[\'target\'] == \'phonegap\') { cordova.plugins.Keyboard.close(); }; return false'><table>";
+				var html = "<form name='cardEditForm' onsubmit='if (MCOW.Config[\"target\"] == \"phonegap\") { cordova.plugins.Keyboard.close(); }; return false'><table>";
 				var html = html + "<tr><td>Note</td><td><textarea class='form-focus' rows='10' cols='80' name='description'>" + currentCard["description"] + "</textarea></td></tr>";
 				var html = html + "<tr><td></td><td><a href='/Curp/cardEdit?course=" + MCOW.Session.Response.param["course"]["id"] + "&card=" + MCOW.Session.Response.param["cardId"] + "&type=scenario" + "&MCOW-transition=out&MCOW-redirect=" + encodeURIComponent("/Curp/scenarioEdit?MCOW-reload=1&course=" + MCOW.Session.Response.param["course"]["id"]) + "'>Ok</a></td></tr>";
 				var html = html + "</table></form>";
@@ -45,7 +45,7 @@
 			else {
 				var currentWeek = MCOW.Session.Response.param["course"]["currentWeek"];
 				var currentCard = MCOW.Session.Response.param["course"]["weeks"][currentWeek-1]["cards"][MCOW.Session.Response.param["cardId"]]
-				var html = "<form name='cardEditForm'><table>";
+				var html = "<form name='cardEditForm' onsubmit='if (MCOW.Config[\"target\"] == \"phonegap\") { cordova.plugins.Keyboard.close(); }; return false'><table>";
 				var html = html + "<tr><td>Description</td><td><textarea class='form-focus' rows='10' cols='80' name='description'>" + currentCard["description"] + "</textarea></td></tr>";
 				var html = html + "<tr><td></td><td><a href='/Curp/cardEdit?course=" + MCOW.Session.Response.param["course"]["id"] + "&card=" + MCOW.Session.Response.param["cardId"] + "&MCOW-transition=out&MCOW-redirect=" + encodeURIComponent("/Curp/courseEdit?MCOW-reload=1&course=" + MCOW.Session.Response.param["course"]["id"]) + "'>Ok</a></td></tr>";
 				var html = html + "</table></form>";
