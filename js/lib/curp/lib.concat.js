@@ -681,7 +681,7 @@ CURP.Data = {
 	getTeachingCards : function() {
 		var teachingCards = new Array();
 
-		teachingCards.push("Induction Session");
+		teachingCards.push("Introduction Session");
 		teachingCards.push("Lecture");
 		teachingCards.push("External Speaker");
 		teachingCards.push("External Visit");

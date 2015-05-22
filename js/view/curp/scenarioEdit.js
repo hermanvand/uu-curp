@@ -21,10 +21,11 @@
 	</section>
 </header>	
 <div id="content">
-	<div class="curp-content-left">
-	</div>
-
 	<div class="curp-content-center">
+
+		<div class="curp-content-left">
+		</div>
+
 		<div class="curp-content-course-container" id="SCENARIOEDIT-SCRIPT-CARDS" style='position:relative;'>
 		</div>
 		<script type="text/javascript">

@@ -113,11 +113,12 @@ a.first-item {
 }
 
 /* content elements */
+/* NOTE: the left-content is put inside the center-content to be able to show menu */
 .curp-content-left {
 	background-color:white;
 	float:left;
 	margin:0px;
-	width:10%;
+	width:100px;
 	height:100%;
 	border-right:solid #dddddd 2px;
 }
@@ -127,8 +128,9 @@ a.first-item {
 	float:left;
 	/*display: inline-block;*/
 	margin:0px;
-	width:69%;
+	width:79%;
 	height:100%;
+	overflow-x:hidden;
 	overflow-y:auto;
 }
 
@@ -139,7 +141,8 @@ a.first-item {
 	height:100%;
 	width:20%;
 	border-left:solid #dddddd 2px;
-
+	overflow-x:hidden;
+	overflow-y:auto;
 }
 
 .curp-section-header {
@@ -173,6 +176,8 @@ a.first-item {
 /* content: course */
 .curp-content-course-container {
 	margin:10px;
+	/* compensate for the left-content */
+	margin-left:110px;
 }
 
 .curp-content-course-item {

@@ -21,40 +21,42 @@
 	</section>
 </header>	
 <div id="content">
-	<div class="curp-content-left">
-		<p class="curp-section-header">Set week</p>
-		<div class="curp-content-week-container" id="COURSEEDIT-SCRIPT-WEEKS" style='position:relative;'>
-		</div>
-		<script type="text/javascript">
-			var html= "";
-			for (var i=0;i<MCOW.Session.Response.param["course"]["weeks"].length;i++) {
-				var t=i*70;
-				var l=10;
-				if (i == MCOW.Session.Response.param["course"]["currentWeek"] - 1) {
-					html = html + "<div class='mcow-touchable curp-content-week-item-selected' data-week='" + (i+1) + "' style='position:absolute;top:" + t + "px;left:" + l + "px;'>"+(i+1);
-				}
-				else {
-					html = html + "<div class='mcow-touchable curp-content-week-item' data-week='" + (i+1) + "' style='position:absolute;top:" + t + "px;left:" + l + "px;'>"+(i+1);
-				}
-				html = html + "<div class='menu' tabindex='-1'>";
-				html = html + "<div class='close menu-cancel'>x</div><br clear='all'>";
-				html = html + "<div class='menu-container'><ul class='menu-list' data-week='" + (i+1) + "'>";
-				if (i != 0) {
-					html = html + "<li class='menu-item curp-content-week-item-up'><nobr>Move up</nobr></li>";
-				}
-				if (i != MCOW.Session.Response.param["course"]["weeks"].length-1) {
-					html = html + "<li class='menu-item curp-content-week-item-down'><nobr>Move down</nobr></li>";
-				}
-				html = html + "<li class='menu-item curp-content-week-item-delete'>Delete</li>";
-				html = html + "</ul></div>";
-				html = html + "</div>";
-				html = html + "</div>";
-			}
-			html = html + "<button class='plus-small curp-week-new' style='position:absolute;top:" + (t + 70) + "px;left:" + l + "px;'>+</button>";
-			MCOW.Util.setHTML("COURSEEDIT-SCRIPT-WEEKS",html);
-		</script>
-	</div>
 	<div class="curp-content-center">
+
+		<div class="curp-content-left">
+			<p class="curp-section-header">Set week</p>
+			<div class="curp-content-week-container" id="COURSEEDIT-SCRIPT-WEEKS" style='position:relative;'>
+			</div>
+			<script type="text/javascript">
+				var html= "";
+				for (var i=0;i<MCOW.Session.Response.param["course"]["weeks"].length;i++) {
+					var t=i*70;
+					var l=10;
+					if (i == MCOW.Session.Response.param["course"]["currentWeek"] - 1) {
+						html = html + "<div class='mcow-touchable curp-content-week-item-selected' data-week='" + (i+1) + "' style='position:absolute;top:" + t + "px;left:" + l + "px;'>"+(i+1);
+					}
+					else {
+						html = html + "<div class='mcow-touchable curp-content-week-item' data-week='" + (i+1) + "' style='position:absolute;top:" + t + "px;left:" + l + "px;'>"+(i+1);
+					}
+					html = html + "<div class='menu' tabindex='-1'>";
+					html = html + "<div class='close menu-cancel'>x</div><br clear='all'>";
+					html = html + "<div class='menu-container'><ul class='menu-list' data-week='" + (i+1) + "'>";
+					if (i != 0) {
+						html = html + "<li class='menu-item curp-content-week-item-up'><nobr>Move up</nobr></li>";
+					}
+					if (i != MCOW.Session.Response.param["course"]["weeks"].length-1) {
+						html = html + "<li class='menu-item curp-content-week-item-down'><nobr>Move down</nobr></li>";
+					}
+					html = html + "<li class='menu-item curp-content-week-item-delete'>Delete</li>";
+					html = html + "</ul></div>";
+					html = html + "</div>";
+					html = html + "</div>";
+				}
+				html = html + "<button class='plus-small curp-week-new' style='position:absolute;top:" + (t + 70) + "px;left:" + l + "px;'>+</button>";
+				MCOW.Util.setHTML("COURSEEDIT-SCRIPT-WEEKS",html);
+			</script>
+		</div>
+	
 		<div class="curp-content-course-container" id="COURSEEDIT-SCRIPT-CARDS" style='position:relative;'>
 		</div>
 		<script type="text/javascript">
@@ -64,7 +66,7 @@
 				html = html + "<p class='plus-small'>Wk " + currentWeek + "</p>";
 				for (var i=0;i<MCOW.Session.Response.param["course"]["weeks"][currentWeek-1]["cards"].length;i++) {
 					var t=70 + (i*120);
-					var l=10;
+					var l=110;
 					var color = MCOW.Session.Response.param["course"]["weeks"][currentWeek-1]["cards"][i]["color"];
 					var title = MCOW.Session.Response.param["course"]["weeks"][currentWeek-1]["cards"][i]["title"];
 					var description = MCOW.Session.Response.param["course"]["weeks"][currentWeek-1]["cards"][i]["description"];
