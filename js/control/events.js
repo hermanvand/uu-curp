@@ -286,7 +286,7 @@ MCOW.Event.Cordova = {
 // > tap, swipe, drag & press fire on selected touch and mouse elements: "class=touchable"
 //
 // scrolling from: http://www.hnldesign.nl/work/code/momentum-scrolling-using-jquery/
-// - if enable_page_scroll = 1 ==> preventdefault always, this is used to disable scolling
+// - if cancel_default_events = 0 ==> preventdefault always, (this MUST be used to disable scolling when enable_page_scroll=1)
 // - else only preventdefault on 'end' to disable click events on 'touchable' class
 MCOW.Event.Touch = {
 
@@ -351,13 +351,16 @@ MCOW.Event.Touch = {
 	// start
 	start: function(e) {
 		var element = MCOW.Util.getEventElement(e);
-		//var element = this;
+		// don't know why?
+		if (MCOW.Config["enable_page_events"] == '0') {
+			element = this;
+		}
 
 		// stop default event handling on touchables (not on page!) 
 		if (element.getAttribute("class") != null && element.getAttribute("class").indexOf("mcow-touchable") != -1) {
-			//if (MCOW.Config["enable_page_scroll"] == '1') {
+			if (MCOW.Config["cancel_default_events"] == '1') {
 				e.preventDefault();
-			//}
+			}
 		}
 
 		// get position and start time
@@ -376,7 +379,10 @@ MCOW.Event.Touch = {
 	// end
 	end: function(e) {
 		var element = MCOW.Util.getEventElement(e);
-		//var element = this;
+		// don't know why?
+		if (MCOW.Config["enable_page_events"] == '0') {
+			element = this;
+		}
 
 		// stop default event handling on touchables (not on page!) 
 		if (element.getAttribute("class") != null && element.getAttribute("class").indexOf("mcow-touchable") != -1) {
@@ -404,13 +410,16 @@ MCOW.Event.Touch = {
 	// move
 	move: function(e) {
 		var element = MCOW.Util.getEventElement(e);
-		//var element = this;
+		// don't know why?
+		if (MCOW.Config["enable_page_events"] == '0') {
+			element = this;
+		}
 
 		// stop default event handling on touchables (not on page!) 
 		if (element.getAttribute("class") != null && element.getAttribute("class").indexOf("mcow-touchable") != -1) {
-			//if (MCOW.Config["enable_page_scroll"] == '1') {
+			if (MCOW.Config["cancel_default_events"] == '1') {
 				e.preventDefault();
-			//}
+			}
 		}
 			
 		// get distance, elapsedtime and acceleration
@@ -433,11 +442,14 @@ MCOW.Event.Touch = {
 	// start
 	mousedown: function(e) {
 		var element = MCOW.Util.getEventElement(e);
-		//var element = this;
+		// don't know why?
+		if (MCOW.Config["enable_page_events"] == '0') {
+			element = this;
+		}
 
 		// stop default event handling on touchables (not on page!) 
 		if (element.getAttribute("class") != null && element.getAttribute("class").indexOf("mcow-touchable") != -1) {
-			if (MCOW.Config["enable_page_scroll"] == '1') {
+			if (MCOW.Config["cancel_default_events"] == '1') {
 				e.preventDefault();
 			}
 		}
@@ -458,7 +470,10 @@ MCOW.Event.Touch = {
 	// end
 	mouseup: function(e) {
 		var element = MCOW.Util.getEventElement(e);
-		//var element = this;
+		// don't know why?
+		if (MCOW.Config["enable_page_events"] == '0') {
+			element = this;
+		}
 
 		// stop default event handling on touchables (not on page!) 
 		if (element.getAttribute("class") != null && element.getAttribute("class").indexOf("mcow-touchable") != -1) {
@@ -486,11 +501,14 @@ MCOW.Event.Touch = {
 	// move
 	mousemove: function(e) {
 		var element = MCOW.Util.getEventElement(e);
-		//var element = this;
+		// don't know why?
+		if (MCOW.Config["enable_page_events"] == '0') {
+			element = this;
+		}
 
 		// stop default event handling on touchables (not on page!) 
 		if (element.getAttribute("class") != null && element.getAttribute("class").indexOf("mcow-touchable") != -1) {
-			if (MCOW.Config["enable_page_scroll"] == '1') {
+			if (MCOW.Config["cancel_default_events"] == '1') {
 				e.preventDefault();
 			}
 		}

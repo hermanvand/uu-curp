@@ -113,6 +113,14 @@ CURP.Event = {
 		}
 
 		// add click events on 'menu items' of course
+		var menus = document.getElementById('page').getElementsByClassName("curp-content-course-item-weekup");
+		for (var i=0;i<menus.length;i++) {
+			menus[i].addEventListener('click', CURP.Lib.moveCardWeekUp, false);
+		}
+		var menus = document.getElementById('page').getElementsByClassName("curp-content-course-item-weekdown");
+		for (var i=0;i<menus.length;i++) {
+			menus[i].addEventListener('click', CURP.Lib.moveCardWeekDown, false);
+		}
 		var menus = document.getElementById('page').getElementsByClassName("curp-content-course-item-up");
 		for (var i=0;i<menus.length;i++) {
 			menus[i].addEventListener('click', CURP.Lib.moveCardUp, false);
@@ -455,6 +463,56 @@ CURP.Lib = {
 		CURP.Lib.setCourse(course);
 	},
 
+	moveCardWeekUp : function(e) {
+		// get element (=request)
+		var element = MCOW.Util.getEventElement(e);
+		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var cardNumber = parseInt(parent.getAttribute("data-card"));
+		
+		// go
+		var course = MCOW.Session.Response.param["course"];
+
+		if (course["currentWeek"] != 1) {
+			var tempCard = course["weeks"][course["currentWeek"]-1].cards[cardNumber];
+
+			course["weeks"][course["currentWeek"]-2].cards.push(tempCard);
+			course["weeks"][course["currentWeek"]-1].cards.splice(cardNumber,1)
+
+			course["currentWeek"] = course["currentWeek"]-1;
+		}
+		
+		// save
+		CURP.Lib.setCourse(course);
+
+		// update view
+		MCOW.Event.fire("/Curp/courseEdit?course="+course["id"]);		
+	},
+
+	moveCardWeekDown : function(e) {
+		// get element (=request)
+		var element = MCOW.Util.getEventElement(e);
+		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var cardNumber = parseInt(parent.getAttribute("data-card"));
+		
+		// go
+		var course = MCOW.Session.Response.param["course"];
+
+		if (course["currentWeek"] != course["weeks"].length) {
+			var tempCard = course["weeks"][course["currentWeek"]-1].cards[cardNumber];
+
+			course["weeks"][course["currentWeek"]].cards.push(tempCard);
+			course["weeks"][course["currentWeek"]-1].cards.splice(cardNumber,1)
+			
+			course["currentWeek"] = course["currentWeek"]+1;			
+		}
+		
+		// save
+		CURP.Lib.setCourse(course);
+
+		// update view
+		MCOW.Event.fire("/Curp/courseEdit?course="+course["id"]);		
+	},
+	
 	moveCardUp : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);

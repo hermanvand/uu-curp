@@ -43,6 +43,7 @@ MCOW.Config = {
 	'enable_page_scroll_vertical' : '0',
 	'enable_page_scroll_element' : 'content',
 	'enable_page_events': '1',
+	'cancel_default_events': '1',
 	'enable_cron_events': '0',
 	'enable_click_events': '1',
 

@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="nl.uu.curp" version="0.0.1" android-versionCode="4" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="nl.uu.curp" version="0.0.1" android-versionCode="5" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 
 	<gap:config-file platform="ios" parent="CFBundleVersion">
-		<string>4</string>
+		<string>5</string>
 	</gap:config-file>
 
     <!-- App Info -->

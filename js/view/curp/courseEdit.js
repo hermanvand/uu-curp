@@ -82,11 +82,17 @@
 					html = html + "<div class='menu' tabindex='-1'>";
 					html = html + "<div class='close menu-cancel'>x</div><br clear='all'>";
 					html = html + "<div class='menu-container'><ul class='menu-list' data-card='" + i + "'>";
+					if (currentWeek != 1) {
+						html = html + "<li class='menu-item curp-content-course-item-weekup'><nobr>Week up</nobr></li>";
+					}
+					if (currentWeek != MCOW.Session.Response.param["course"]["weeks"].length) {
+						html = html + "<li class='menu-item curp-content-course-item-weekdown'><nobr>Week down</nobr></li>";
+					}
 					if (i != 0) {
-						html = html + "<li class='menu-item curp-content-course-item-up'><nobr>Move up</nobr></li>";
+						html = html + "<li class='menu-item curp-content-course-item-up'><nobr>Card up</nobr></li>";
 					}
 					if (i != MCOW.Session.Response.param["course"]["weeks"][currentWeek-1]["cards"].length-1) {
-						html = html + "<li class='menu-item curp-content-course-item-down'><nobr>Move down</nobr></li>";
+						html = html + "<li class='menu-item curp-content-course-item-down'><nobr>Card down</nobr></li>";
 					}
 					html = html + "<li class='menu-item curp-content-course-item-edit'>Edit</li>";
 					html = html + "<li class='menu-item curp-content-course-item-delete'>Delete</li>";
