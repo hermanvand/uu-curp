@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="nl.uu.curp" version="0.0.1" android-versionCode="5" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="nl.uu.curp" version="0.0.2" android-versionCode="6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 
 	<gap:config-file platform="ios" parent="CFBundleVersion">
-		<string>5</string>
+		<string>6</string>
 	</gap:config-file>
 
     <!-- App Info -->
@@ -20,7 +20,7 @@
     <access origin="*" subdomains="true" />
 
     <!-- Which platform do we support? -->
-    <!--<gap:platform name="ios" />-->
+    <gap:platform name="ios" />
     <gap:platform name="android" />
 
     <!-- App preferences -->
@@ -38,6 +38,11 @@
 	<preference name="android-targetSdkVersion" value="19"/> //android 4.4
 	<!-- needed to show splashscreen -->
 	<preference name="SplashScreen" value="splash" />
+	<!-- iOS specific -->
+	<preference name="target-device" value="tablet" />
+	<preference name="deployment-target" value="6.0" />
+	<!-- no funky stuff with the statusbar -->
+	<preference name="StatusBarOverlaysWebView" value="false" />
 
     <!-- App features -->
     <!-- <feature name="http://api.phonegap.com/1.0/device" /> -->
@@ -53,7 +58,21 @@
     <icon src="gfx/curp/icons/96.png" gap:platform="android" gap:qualifier="xhdpi" />
     <icon src="gfx/curp/icons/144.png" gap:platform="android" gap:qualifier="xxhdpi" />
     <icon src="gfx/curp/icons/192.png" gap:platform="android" gap:qualifier="xxxhdpi" />
- 
+	<!-- iPad -->
+	<icon src="gfx/curp/icons/Icon-76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="gfx/curp/icons/Icon-76@2x.png" gap:platform="ios" width="152" height="152" />
+	<!-- Settings Icon -->
+	<icon src="gfx/curp/icons/Icon-Small.png" gap:platform="ios" width="29" height="29" />
+	<icon src="gfx/curp/icons/Icon-Small@2x.png" gap:platform="ios" width="58" height="58" />
+	<!-- Spotlight Icon -->
+	<icon src="gfx/curp/icons/Icon-Small-40.png" gap:platform="ios" width="40" height="40" />
+	<icon src="gfx/curp/icons/Icon-Small-40@2x.png" gap:platform="ios" width="80" height="80" />
+	<!-- < iOS 7.0 -->
+	<icon src="gfx/curp/icons/Icon-72.png" gap:platform="ios" width="72" height="72" />
+	<icon src="gfx/curp/icons/Icon-72@2x.png" gap:platform="ios" width="144" height="144" />
+	<icon src="gfx/curp/icons/Icon-Small-50.png" gap:platform="ios" width="50" height="50" />
+	<icon src="gfx/curp/icons/Icon-Small-50@2x.png" gap:platform="ios" width="100" height="100" />
+
     <!-- Splash screens -->
     <!-- android -->
     <gap:splash src="splash.png" />
@@ -63,7 +82,14 @@
 	<gap:splash src="gfx/curp/splash/xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
 	<!--<gap:splash src="gfx/timebox/splash/xxhdpi.png" gap:platform="android" gap:qualifier="xxhdpi" />
 	<gap:splash src="gfx/timebox/splash/fr-xxhdpi.png" gap:platform="android" gap:qualifier="xxxhdpi" />-->
- 	
+
+	<!-- iPad -->
+	<gap:splash src="gfx/curp/splash/Default-Portrait.png" gap:platform="ios" width="768" height="1024"/>
+	<gap:splash src="gfx/curp/splash/Default-Landscape.png" gap:platform="ios" width="1024" height="768"/>
+	<!-- Retina iPad -->
+	<gap:splash src="gfx/curp/splash/Default-Portrait@2xpng" gap:platform="ios" width="1536" height="2048"/>
+	<gap:splash src="gfx/curp/splash/Default-Landscape@2x.png" gap:platform="ios" width="2048" height="1536"/>
+
     <!-- plugins
     dialog: org.apache.cordova.dialogs
     splash: org.apache.cordova.splashscreen 
@@ -76,6 +102,7 @@
     
     social sharing: nl.x-services.plugins.socialsharing
     custom url: nl.x-services.plugins.launchmyapp
+    toast: cordova plugin add nl.x-services.plugins.toast
     keyboard: cordova plugin add com.ionic.keyboard
     -->
    
@@ -88,8 +115,9 @@
 	
     <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" />
     <gap:plugin name="nl.x-services.plugins.launchmyapp" version="3.2.0">
-		<param name="URL_SCHEME" value="timebox" />
+		<param name="URL_SCHEME" value="curp" />
 	</gap:plugin>
+    <gap:plugin name="nl.x-services.plugins.toast" version="2.0.2" />
 	<gap:plugin name="com.ionic.keyboard" version="1.0.3" />
 
 </widget>
