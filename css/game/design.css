@@ -58,15 +58,15 @@ body {
 }
 
 #page {
-	background-color:#ffffff;
+	background-color:red;
 	z-index:10;
 }
 #transition {
-	background-color:#ffffff;
+	background-color:yellow;
 	z-index:1000;
 }
 #store {
-	background-color:#ffffff;
+	background-color:blue;
 	z-index:-1;
 }
 
