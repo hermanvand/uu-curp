@@ -303,7 +303,7 @@ MCOW.Event.Cordova = {
 	// init phonegap plugins
 	// - if necessary to differentiate between platforms, use: cordova.platformId
 	if (MCOW.Config["target"] == 'phonegap') {
-		StatusBar.overlaysWebView(false);
+		//StatusBar.overlaysWebView(false);
 	}
 	
 	// go
