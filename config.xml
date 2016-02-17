@@ -26,7 +26,7 @@
     <!-- App preferences -->
     <!-- version 3.7.0 does not work with url scheme: https://github.com/EddyVerbruggen/Custom-URL-scheme -->
     <preference name="phonegap-version" value="cli-5.2.0" /> 
-    <!-- <preference name="orientation" value="landscape" /> -->
+    <preference name="orientation" value="landscape" />
     <!-- fix ui --> 
     <preference name="DisallowOverscroll" value="true" /> 
     <!-- splashscreen options --> 
@@ -105,13 +105,13 @@
     toast: cordova plugin add nl.x-services.plugins.toast
     keyboard: cordova plugin add com.ionic.keyboard
     -->
-    <!--
+
 	<gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
 	<gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
 	<gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
 	<gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
 	<gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
-	<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />
+	<!--<gap:plugin name="org.apache.cordova.statusbar" version="0.1.4" />-->
 	
     <gap:plugin name="nl.x-services.plugins.socialsharing" version="4.3.8" />
     <gap:plugin name="nl.x-services.plugins.launchmyapp" version="3.2.0">
@@ -119,19 +119,5 @@
 	</gap:plugin>
     <gap:plugin name="nl.x-services.plugins.toast" version="2.0.2" />
 	<gap:plugin name="com.ionic.keyboard" version="1.0.3" />
-	-->
-	<gap:plugin name="org.apache.cordova.dialogs" />
-	<gap:plugin name="org.apache.cordova.splashscreen" />
-	<gap:plugin name="org.apache.cordova.inappbrowser" />
-	<gap:plugin name="org.apache.cordova.network-information" />
-	<gap:plugin name="org.apache.cordova.camera" />
-	<gap:plugin name="org.apache.cordova.statusbar" />
-	
-    <gap:plugin name="nl.x-services.plugins.socialsharing" />
-    <gap:plugin name="nl.x-services.plugins.launchmyapp" >
-		<param name="URL_SCHEME" value="curp" />
-	</gap:plugin>
-    <gap:plugin name="nl.x-services.plugins.toast" />
-	<gap:plugin name="com.ionic.keyboard" />
 
 </widget>
