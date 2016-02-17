@@ -40,12 +40,13 @@ MCOW.Config = {
 // events
 	'enable_page_scroll' : '0',
 	'enable_page_scroll_horizontal' : '0',
-	'enable_page_scroll_vertical' : '0',
+	'enable_page_scroll_vertical' : '1',
 	'enable_page_scroll_element' : 'content',
-	'enable_page_events': '1',
+	'enable_page_events': '0',
 	'cancel_default_events': '1',
+	'cancel_bubble_events': '1',
 	'enable_cron_events': '0',
-	'enable_click_events': '1',
+	'enable_click_events': '0',
 
 // transition
 // fast:200, normal: 400, slow: 600

@@ -65,6 +65,34 @@ CURP.Event = {
 		for (var i=0;i<touchables.length;i++) {
 			touchables[i].addEventListener('touchable', CURP.Event.touchable, false);
 		}
+		var touchablesTop = document.getElementById('topbar').getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesTop.length;i++) {
+			touchablesTop[i].addEventListener('touchable', CURP.Event.touchable, false);
+		}
+		var touchablesBottom = document.getElementById('bottombar').getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesBottom.length;i++) {
+			touchablesBottom[i].addEventListener('touchable', CURP.Event.touchable, false);
+		}
+		var touchablesButton = document.getElementById('actionbutton').getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesButton.length;i++) {
+			touchablesButton[i].addEventListener('touchable', CURP.Event.touchable, false);
+		}
+		var touchablesLeft = document.getElementById('leftnav').getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesLeft.length;i++) {
+			touchablesLeft[i].addEventListener('touchable', CURP.Event.touchable, false);
+		}
+		var touchablesRight = document.getElementById('rightnav').getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesRight.length;i++) {
+			touchablesRight[i].addEventListener('touchable', CURP.Event.touchable, false);
+		}
+		var touchablesOverlay = document.getElementById('overlay').getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesOverlay.length;i++) {
+			touchablesOverlay[i].addEventListener('touchable', CURP.Event.touchable, false);
+		}
+		var touchablesDialog = document.getElementById('dialog').getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesDialog.length;i++) {
+			touchablesDialog[i].addEventListener('touchable', CURP.Event.touchable, false);
+		}
 
 		// add onchange event on 'select'
 		var selections = document.getElementById('page').getElementsByTagName("select");
@@ -86,9 +114,13 @@ CURP.Event = {
 			if (buttons[i].getAttribute("class").indexOf("curp-share-csv") != -1) {
 				buttons[i].addEventListener('click', CURP.Lib.shareCSV, false);
 			}
+			if (buttons[i].getAttribute("class").indexOf("curp-share-social") != -1) {
+				buttons[i].addEventListener('click', CURP.Lib.shareSOCIAL, false);
+			}
 		}
 
 		// add click events on 'menu items' of curriculum
+		/*
 		var menus = document.getElementById('page').getElementsByClassName("curp-content-curriculum-item-edit");
 		for (var i=0;i<menus.length;i++) {
 			menus[i].addEventListener('click', CURP.Lib.editCourseName, false);
@@ -97,7 +129,8 @@ CURP.Event = {
 		for (var i=0;i<menus.length;i++) {
 			menus[i].addEventListener('click', CURP.Lib.deleteCourse, false);
 		}
-
+		*/
+		
 		// add click events on 'menu items' of week
 		var menus = document.getElementById('page').getElementsByClassName("curp-content-week-item-up");
 		for (var i=0;i<menus.length;i++) {
@@ -163,14 +196,140 @@ CURP.Event = {
 		// type is tap, swipeleft, swiperight, swipeup, swipedown, press, drag
 		// - implemented 'press' to display a menu with actions
 		if (type == "tap") {
-			// edit course
-			if (element.getAttribute("class").indexOf("curp-content-curriculum-item") != -1) {
-				CURP.Lib.editCourse(e);
-			}
-			// set week
-			if (element.getAttribute("class").indexOf("curp-content-week-item") != -1) {
-				CURP.Lib.setWeek(e);
-			}
+			//if (CURP.Status["tap"] != 1) {
+
+				// edit course
+				if (element.getAttribute("class").indexOf("curp-content-curriculum-item") != -1) {
+					CURP.Lib.editCourse(e);
+				}
+				// delete course
+				if (element.getAttribute("class").indexOf("curp-content-curriculum-item-delete") != -1) {
+					CURP.Lib.deleteCourse(e);
+				}
+				// delete card
+				if (element.getAttribute("class").indexOf("curp-content-course-item-delete") != -1) {
+					CURP.Lib.deleteCard(e);
+				}
+				// card up
+				if (element.getAttribute("class").indexOf("curp-content-course-item-up") != -1) {
+					CURP.Lib.moveCardUp(e);
+				}
+				// card down
+				if (element.getAttribute("class").indexOf("curp-content-course-item-down") != -1) {
+					CURP.Lib.moveCardDown(e);
+				}
+				// new week
+				if (element.getAttribute("class").indexOf("curp-week-new") != -1) {
+					CURP.Lib.addWeek(e);
+				}
+				// set week
+				if (element.getAttribute("class").indexOf("curp-content-week-item-unselected") != -1) {
+					CURP.Lib.setWeek(e);
+				}
+				// delete week
+				if (element.getAttribute("class").indexOf("curp-content-week-item-delete") != -1) {
+					CURP.Lib.deleteWeek(e);
+				}
+				// week up
+				if (element.getAttribute("class").indexOf("curp-content-week-item-up") != -1) {
+					CURP.Lib.moveWeekUp(e);
+				}
+				// week down
+				if (element.getAttribute("class").indexOf("curp-content-week-item-down") != -1) {
+					CURP.Lib.moveWeekDown(e);
+				}
+				// expand week
+				if (element.getAttribute("class").indexOf("curp-content-week-item-setmore") != -1) {
+					var element2 = MCOW.Util.getEventElement(e);
+					var parent = MCOW.Util.getClosestParent(element2,"DIV");
+					var weekId = parent.getAttribute("data-week");
+
+					MCOW.Util.disableDisplay("curp-content-week-item-less-" + weekId);
+					MCOW.Util.enableDisplay("curp-content-week-item-more-" + weekId);
+				}
+				// collapse week
+				if (element.getAttribute("class").indexOf("curp-content-week-item-setless") != -1) {
+					var element2 = MCOW.Util.getEventElement(e);
+					var parent = MCOW.Util.getClosestParent(element2,"DIV");
+					var weekId = parent.getAttribute("data-week");
+
+					MCOW.Util.disableDisplay("curp-content-week-item-more-" + weekId);
+					MCOW.Util.enableDisplay("curp-content-week-item-less-" + weekId);
+				}
+				// delete wildcard
+				if (element.getAttribute("class").indexOf("curp-content-scenario-item-delete") != -1) {
+					CURP.Lib.deleteWildcard(e);
+				}
+				
+				// open menu
+				if (element.getAttribute("class").indexOf("curp-header-left-open") != -1) {
+					MCOW.Util.enableTransition("leftnav", "left");
+				}			
+				// close menu
+				if (element.getAttribute("class").indexOf("curp-header-left-close") != -1) {
+					MCOW.Util.disableTransition("leftnav", "left");
+				}
+				// open rightnav
+				if (element.getAttribute("class").indexOf("curp-header-right-open") != -1) {
+					MCOW.Util.enableDisplay("filter");
+					MCOW.Util.enableTransition("rightnav", "right");
+				}			
+				// close rightnav
+				if (element.getAttribute("class").indexOf("curp-header-right-close") != -1) {
+					MCOW.Util.disableTransition("rightnav", "right");
+					MCOW.Util.disableDisplay("filter");
+				}
+				// open dialog
+				if (element.getAttribute("class").indexOf("curp-header-dialog-open") != -1) {
+					// save cardId to dialog
+					var parent = MCOW.Util.getClosestParent(element,"DIV");
+					var cardId = parent.getAttribute("data-card");
+					document.getElementById("dialogOptions").setAttribute("data-card", cardId);
+					
+					MCOW.Util.enableDisplay("filter");
+					MCOW.Util.enableDisplay("dialog");
+				}			
+				// close dialog
+				if (element.getAttribute("class").indexOf("curp-header-dialog-close") != -1) {
+					MCOW.Util.disableDisplay("dialog");
+					MCOW.Util.disableDisplay("filter");
+				}
+				// ok dialog
+				if (element.getAttribute("class").indexOf("curp-header-dialog-ok") != -1) {
+					// get necessary card and week id's
+					var cardNumber = document.getElementById("dialogOptions").getAttribute("data-card");
+					var weekNumber = document.getElementById("dialogOptions").getAttribute("data-week");
+					CURP.Lib.moveCardWeek(cardNumber, weekNumber);
+					
+					MCOW.Util.disableDisplay("dialog");
+					MCOW.Util.disableDisplay("filter");
+				}
+				
+				// link to data
+				if (element.getAttribute("class").indexOf("curp-link-data") != -1) {
+					MCOW.Event.fire(element.getAttribute("data"));
+				}
+				// link to data from nav
+				if (element.getAttribute("class").indexOf("curp-link-nav") != -1) {
+					MCOW.Util.disableTransition("leftnav", "left");
+					MCOW.Event.fire(element.getAttribute("data"));
+				}
+				// link to data from right
+				if (element.getAttribute("class").indexOf("curp-link-right") != -1) {
+					MCOW.Util.disableTransition("rightnav", "right");
+					MCOW.Util.disableDisplay("filter");
+					MCOW.Event.fire(element.getAttribute("data"));
+				}
+				// set radio input in dialog
+				if (element.getAttribute("class").indexOf("curp-content-week-dialog-unselected") != -1) {
+					document.getElementById("dialogInput" + element.getAttribute("data-week")).checked = true;
+					//save new weekId to dialog
+					document.getElementById("dialogOptions").setAttribute("data-week", element.getAttribute("data-week"));
+				}
+				
+				//CURP.Status["tap"] = 1;
+			//}
+
 		}
 		if (type == "press") {
 			MCOW.Menu.show(element, x, y);
@@ -181,6 +340,11 @@ CURP.Event = {
 			// element.style.left = x + "px";
 		}
 		
+		if (MCOW.Config["cancel_bubble_events"] == '1') {
+			e.stopPropagation();
+		}
+
+
 	}
 	
 }
@@ -302,7 +466,7 @@ CURP.Lib = {
 	deleteCourse : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var courseId = parent.getAttribute("data-course");
 		
 		// remove course
@@ -362,7 +526,7 @@ CURP.Lib = {
 	moveWeekUp : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var weekNumber = parseInt(parent.getAttribute("data-week"));
 		
 		// go
@@ -386,7 +550,7 @@ CURP.Lib = {
 	moveWeekDown : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var weekNumber = parseInt(parent.getAttribute("data-week"));
 		
 		// go
@@ -410,7 +574,7 @@ CURP.Lib = {
 	deleteWeek : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var weekNumber = parseInt(parent.getAttribute("data-week"));
 		
 		// go
@@ -461,6 +625,26 @@ CURP.Lib = {
 		
 		// save
 		CURP.Lib.setCourse(course);
+	},
+
+	moveCardWeek : function(cardNumber, weekNumber) {	
+		// go
+		var course = MCOW.Session.Response.param["course"];
+
+		if (course["currentWeek"] != weekNumber) {
+			var tempCard = course["weeks"][course["currentWeek"]-1].cards[cardNumber];
+
+			course["weeks"][weekNumber-1].cards.push(tempCard);
+			course["weeks"][course["currentWeek"]-1].cards.splice(cardNumber,1)
+
+			course["currentWeek"] = weekNumber;
+		}
+		
+		// save
+		CURP.Lib.setCourse(course);
+
+		// update view
+		MCOW.Event.fire("/Curp/courseEdit?course="+course["id"]);		
 	},
 
 	moveCardWeekUp : function(e) {
@@ -516,7 +700,7 @@ CURP.Lib = {
 	moveCardUp : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var cardNumber = parseInt(parent.getAttribute("data-card"));
 		
 		// go
@@ -538,7 +722,7 @@ CURP.Lib = {
 	moveCardDown : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var cardNumber = parseInt(parent.getAttribute("data-card"));
 		
 		// go
@@ -573,7 +757,7 @@ CURP.Lib = {
 	deleteCard : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var cardNumber = parseInt(parent.getAttribute("data-card"));
 		
 		// go
@@ -623,7 +807,7 @@ CURP.Lib = {
 	editWildcard : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var cardNumber = parseInt(parent.getAttribute("data-card"));
 		
 		// go
@@ -636,7 +820,7 @@ CURP.Lib = {
 	deleteWildcard : function(e) {
 		// get element (=request)
 		var element = MCOW.Util.getEventElement(e);
-		var parent = MCOW.Util.getClosestParent(element,"UL");
+		var parent = MCOW.Util.getClosestParent(element,"DIV");
 		var cardNumber = parseInt(parent.getAttribute("data-card"));
 		
 		// go
@@ -662,7 +846,7 @@ CURP.Lib = {
 		alert(JSON.stringify(course, undefined, 2));	
 	},
 
-	shareCSV : function() {
+	getCSV : function() {
 		// go
 		var course = MCOW.Session.Response.param["course"];
 		
@@ -687,9 +871,27 @@ CURP.Lib = {
 				csv = csv + "\"\n";
 			}
 		}
-		alert(csv);
+		return csv;
+	},
+
+	shareCSV : function() {
+		alert(CURP.Lib.getCSV());
 	},
 	
+	shareSOCIAL : function() {
+		// go
+		var csv = CURP.Lib.getCSV();
+
+		if (MCOW.Config["target"] == 'phonegap') {
+			var message = csv;
+			window.plugins.socialsharing.share(message);
+		}
+		else {
+			alert("Social share only available in phonegap mode.");
+		}
+
+	},
+
 }
 
 // the list of objects

@@ -1,6 +1,12 @@
 /* the html/body of the app consist of
  * - topbar
- * - pagescroller
+ * - pagescroller (content)
+ * - bottombar
+ * - actionbutton
+ * - leftnav
+ * - rightnav
+ * - filter
+ * - dialog
  * - overlay
  * 
  * the page scroller is a container for
@@ -8,15 +14,9 @@
  * - transition
  * - store
  * 
- * a page for an app contains 4 panes
- * - header
+ * a page for an app contains 1 pane
  * - content
- * - sidebar
- * - footer
- * 
- * and more elements
- * - section 
- * - logo
+
  */
 html {
 	width: 100%;
@@ -43,15 +43,62 @@ body {
 #pagescroller {
 	width: 100%;
 	height: 100%;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
 	overflow-x: hidden;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	-webkit-overflow-scrolling: touch;
 	-webkit-backface-visibility: hidden;
+}
+
+/* add bottombar, but i never used it... */
+#bottombar {
+	/* fixed footer */
+	display: none;
+	position: fixed;
+	width: 100%;
+	top: 0px; /*todo: calculate this later */
+	left: 0px;
 	transform: translateZ(0);
 	-webkit-transform: translateZ(0);
 }
 
+/* floating elements */
+#actionbutton, #leftnav, #rightnav, #filter, #dialog, #overlay {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin: 0px;
+	padding: 0px;
+	transform: translateZ(0);
+	-webkit-transform: translateZ(0);
+}
+#actionbutton {
+	width: 48px;
+	height: 48px;
+}
+#rightnav {
+	width: 100%;
+}
+
+#leftnav, #rightnav {
+	min-width: 200px;
+	height: 100%;
+}
 #overlay {
+	width: 40%;
+	left: 30%;
+}
+#dialog {
+	width: 40%;
+	height: 60%;
+	left: 30%;
+	top: 20%;
+}
+#filter {
+	width: 100%;
+	height: 100%;
 }
 
 /* the page is the body */
@@ -82,45 +129,9 @@ body {
 #transition, #store {
 	display: none;
 }
-	
-/* the header is on top */
-#header {
-	visibility: hidden;
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
-	height: 10%;
-}
 
 /* the content is in the center */
 #content {
-	margin: 0px;
-	padding: 0px;
 	width: 100%;
-	height: 90%;
-}
-
-/* a sidebar to the content*/
-#sidebar {
-	visibility: hidden;
-	height: 0;
-}
-
-/* the footer is at the bottom*/
-#footer {
-	visibility: hidden;
-	margin: 0px;
-	padding: 0px;
-	width: 100%;
-	height: 0%;
-	clear: both;
-}
-
-/* sections need some space */
-section {
-	padding: 5px;
-}
-	
-/* logo */
-#logo {
+	height: 100%;
 }

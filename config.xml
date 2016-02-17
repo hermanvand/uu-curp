@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="nl.dompseler.curp" version="0.0.2" android-versionCode="6" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="nl.dompseler.curp" version="0.0.2" android-versionCode="7" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
 
 	<gap:config-file platform="ios" parent="CFBundleVersion">
-		<string>6</string>
+		<string>7</string>
 	</gap:config-file>
 
     <!-- App Info -->

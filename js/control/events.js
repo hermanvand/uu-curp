@@ -131,9 +131,9 @@ MCOW.Event = {
 			e.addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
 		}
 		
-		// add touch & mouse events to touchables of the page & topbar
+		// add touch & mouse events to touchables of the page (not transition & store)
 		var touchables = e.getElementsByClassName("mcow-touchable");
-		for (var i=0;i<touchables.length;i++) {
+ 		for (var i=0;i<touchables.length;i++) {
 			touchables[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
 			touchables[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
 			touchables[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
@@ -141,15 +141,9 @@ MCOW.Event = {
 			touchables[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
 			touchables[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
 		}
-		var touchablesTop = document.getElementById("topbar").getElementsByClassName("mcow-touchable");
-		for (var i=0;i<touchablesTop.length;i++) {
-			touchablesTop[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
-			touchablesTop[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
-			touchablesTop[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
-			touchablesTop[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
-			touchablesTop[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
-			touchablesTop[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
-		}
+
+		// add more touch & mouse events to touchables on surrounding elements: topbar, bottombar, actionbutton, leftnav, rightnav, overlay (not filter)
+		MCOW.Event.addTouchables();
 
 		// add click event on anchors of the page
 		if (MCOW.Config["enable_click_events"] == '1') {
@@ -180,6 +174,117 @@ MCOW.Event = {
 			window[pluginName.toUpperCase()]["Event"]["loadPage"]();
 		}
 
+	},
+
+	addTouchables: function() {
+		var touchablesTop = document.getElementById("topbar").getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesTop.length;i++) {
+			touchablesTop[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
+			touchablesTop[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
+			touchablesTop[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
+			touchablesTop[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
+			touchablesTop[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
+			touchablesTop[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
+		}
+		var touchablesBottom = document.getElementById("bottombar").getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesBottom.length;i++) {
+			touchablesBottom[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
+			touchablesBottom[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
+			touchablesBottom[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
+			touchablesBottom[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
+			touchablesBottom[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
+			touchablesBottom[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
+		}
+		var touchablesButton = document.getElementById("actionbutton").getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesButton.length;i++) {
+			touchablesButton[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
+			touchablesButton[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
+			touchablesButton[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
+			touchablesButton[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
+			touchablesButton[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
+			touchablesButton[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
+		}
+		var touchablesLeft = document.getElementById("leftnav").getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesLeft.length;i++) {
+			touchablesLeft[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
+			touchablesLeft[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
+			touchablesLeft[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
+			touchablesLeft[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
+			touchablesLeft[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
+			touchablesLeft[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
+		}
+		var touchablesRight = document.getElementById("rightnav").getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesRight.length;i++) {
+			touchablesRight[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
+			touchablesRight[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
+			touchablesRight[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
+			touchablesRight[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
+			touchablesRight[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
+			touchablesRight[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
+		}
+		var touchablesOverlay = document.getElementById("overlay").getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesOverlay.length;i++) {
+			touchablesOverlay[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
+			touchablesOverlay[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
+			touchablesOverlay[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
+			touchablesOverlay[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
+			touchablesOverlay[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
+			touchablesOverlay[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
+		}
+		var touchablesDialog = document.getElementById("dialog").getElementsByClassName("mcow-touchable");
+		for (var i=0;i<touchablesDialog.length;i++) {
+			touchablesDialog[i].addEventListener("touchstart", MCOW.Event.Touch.start, false);
+			touchablesDialog[i].addEventListener("touchend", MCOW.Event.Touch.end, false);
+			touchablesDialog[i].addEventListener("touchmove", MCOW.Event.Touch.move, false);
+			touchablesDialog[i].addEventListener("mousedown", MCOW.Event.Touch.mousedown, false);
+			touchablesDialog[i].addEventListener("mouseup", MCOW.Event.Touch.mouseup, false);
+			touchablesDialog[i].addEventListener("mousemove", MCOW.Event.Touch.mousemove, false);
+		}
+	},
+	
+	enableTouchableElements: function() {
+		// set topbar if required
+		if (document.getElementById("topbar").classList.length == 1) {
+			MCOW.Util.enableDisplay("topbar");
+		}
+		// set bottombar if required
+		if (document.getElementById("bottombar").classList.length == 1) {
+			MCOW.Util.enableDisplay("bottombar");
+		}
+		// set floating action button if required
+		if (document.getElementById("actionbutton").classList.length == 1) {
+			MCOW.Util.enableDisplay("actionbutton");
+		}
+	},
+
+	disableTouchableElements: function() {
+		// make sure the topbar is cleared
+		if (document.getElementById("topbar").classList.length == 1) {
+			MCOW.Util.disableDisplay("topbar");
+			document.getElementById("topbar").classList.remove(document.getElementById("topbar").classList.item(0));
+			MCOW.Util.setHTML("topbar","");
+		}
+		// make sure the bottombar is cleared
+		if (document.getElementById("bottombar").classList.length == 1) {
+			MCOW.Util.disableDisplay("bottombar");
+			document.getElementById("bottombar").classList.remove(document.getElementById("bottombar").classList.item(0));
+			MCOW.Util.setHTML("bottombar","");
+		}
+		// make sure the floating action button is cleared
+		if (document.getElementById("actionbutton").classList.length == 1) {
+			MCOW.Util.disableDisplay("actionbutton");
+			document.getElementById("actionbutton").classList.remove(document.getElementById("actionbutton").classList.item(0));
+			MCOW.Util.setHTML("actionbutton","");
+		}
+		// also clear the leftnav, sidenav & overlay
+		// - they are out of sight, so no need to disable
+		MCOW.Util.setHTML("leftnav","");
+		MCOW.Util.setHTML("rightnav","");
+		MCOW.Util.setHTML("overlay","");
+		// disable filter & dialog
+		MCOW.Util.disableDisplay("filter");
+		MCOW.Util.disableDisplay("dialog");
+		MCOW.Util.setHTML("dialog","");
 	}
 	
 }
@@ -950,16 +1055,10 @@ MCOW.Event.Control = {
 	// that's why this is a callback function...
 	view: function() {
 		// 7. present VIEW
-			
-		// make sure the topbar is cleared
-		if (document.getElementById("topbar").classList.length == 1) {
-			MCOW.Util.disableDisplay("topbar");
-			document.getElementById("topbar").classList.remove(document.getElementById("topbar").classList.item(0));
-			MCOW.Util.setHTML("topbar","");
-		}
-		// also clear the overlay (it's out of sight, so no need to disable)
-		MCOW.Util.setHTML("overlay","");
-
+		
+		// clear surroundings	
+		MCOW.Event.disableTouchableElements();
+		
 		// Load view on demand
 		// - also pretty :-)
 		// - now the content is loaded (setHTML) and excecuted (setScript)
@@ -1032,14 +1131,12 @@ MCOW.Event.Control = {
 			MCOW.Util.setScript("page"); 
 			MCOW.Event.loadFase4("page", "load");
 
-			// set topbar if required
-			if (document.getElementById("topbar").classList.length == 1) {
-				MCOW.Util.enableDisplay("topbar");
-			}
+			// enable surroundings
+			MCOW.Event.enableTouchableElements();
+
 			// reset the pagescroller
 			document.getElementById("pagescroller").scrollTop = 0;
 			window.scrollTo(0,0);
-
 
 			// allow time for reflow & transform (2ms)
 			setTimeout(function() {
@@ -1093,10 +1190,9 @@ MCOW.Event.Control = {
 				MCOW.Util.setScript("page"); 
 				MCOW.Event.loadFase4("page", "load");
 
-				// set topbar if required
-				if (document.getElementById("topbar").classList.length == 1) {
-					MCOW.Util.enableDisplay("topbar");
-				}
+				// enable surroundings
+				MCOW.Event.enableTouchableElements();
+
 				// reset the pagescroller
 				document.getElementById("pagescroller").scrollTop = 0;
 				window.scrollTo(0,0);
@@ -1148,10 +1244,9 @@ MCOW.Event.Control = {
 				// MCOW.Session.DataHTML = document.getElementById('page').innerHTML;
 				MCOW.Session.DataHTML = data;
 
-				// set topbar if required
-				if (document.getElementById("topbar").classList.length == 1) {
-					MCOW.Util.enableDisplay("topbar");
-				}
+				// enable surroundings
+				MCOW.Event.enableTouchableElements();
+
 				// reset the pagescroller
 				document.getElementById("pagescroller").scrollTop = 0;
 				window.scrollTo(0,0);

@@ -167,6 +167,27 @@ MCOW.Util = {
 		e.classList.remove(dir + "-trans-out");
 	},
 
+	enableTransition: function(id, dir) {
+		MCOW.Util.initTransition(id, dir);
+		MCOW.Util.enableDisplay(id);
+		setTimeout(function() {
+			MCOW.Util.setTransition(id, dir); 
+			}, MCOW.Config["trans_timer_setup"]);
+	},
+	disableTransition: function(id, dir) {
+		MCOW.Util.initReverseTransition(id, dir);
+		MCOW.Util.enableDisplay(id);
+		setTimeout(function() {
+			MCOW.Util.setReverseTransition(id, dir); 
+			setTimeout(function() {
+				// hide transition
+				MCOW.Util.disableDisplay(id);
+				MCOW.Util.resetTransition(id, dir); 
+				MCOW.Util.resetReverseTransition(id, dir); 
+				}, MCOW.Config["trans_timer"]);
+			}, MCOW.Config["trans_timer_setup"]);
+	},
+	
 	// ########
 	// LANGUAGE
 	// ########
