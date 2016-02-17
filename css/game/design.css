@@ -58,15 +58,15 @@ body {
 }
 
 #page {
-	background-color:red;
+	background-color:#ffffff;
 	z-index:10;
 }
 #transition {
-	background-color:yellow;
+	background-color:#ffffff;
 	z-index:1000;
 }
 #store {
-	background-color:blue;
+	background-color:#ffffff;
 	z-index:-1;
 }
 
@@ -151,7 +151,7 @@ body {
 }
 
 #content {
-	background-color: #ffffff;
+	background-color: red;
 }
 
 /* extensions */
