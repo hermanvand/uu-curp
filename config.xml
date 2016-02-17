@@ -39,7 +39,7 @@
 	<!-- needed to show splashscreen -->
 	<preference name="SplashScreen" value="splash" />
 	<!-- iOS specific -->
-	<preference name="target-device" value="tablet" />
+	<preference name="target-device" value="universal" />
 	<preference name="deployment-target" value="6.0" />
 	<!-- no funky stuff with the statusbar -->
 	<preference name="StatusBarOverlaysWebView" value="false" />
