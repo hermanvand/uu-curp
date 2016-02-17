@@ -57,10 +57,5 @@ document.getElementById("actionbutton").style.left = "80%";
 			}
 			MCOW.Util.setHTML("HOME-SCRIPT-COURSES",html);
 		</script>	
-		<!--
-		<p>
-			<a class="plus" href="/Curp/courseNew">+</a>
-		</p>
-		-->
 	</section>
 </div>
