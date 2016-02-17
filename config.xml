@@ -25,7 +25,7 @@
 
     <!-- App preferences -->
     <!-- version 3.7.0 does not work with url scheme: https://github.com/EddyVerbruggen/Custom-URL-scheme -->
-    <preference name="phonegap-version" value="3.6.3" /> 
+    <preference name="phonegap-version" value="cli-5.2.0" /> 
     <!-- <preference name="orientation" value="landscape" /> -->
     <!-- fix ui --> 
     <preference name="DisallowOverscroll" value="true" /> 

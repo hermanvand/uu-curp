@@ -29,6 +29,41 @@
 	</script>
 </head>
 <body>
-boe
+	<div id="topbar">
+	</div>
+	<div id="pagescroller">
+		<div id="page">
+		</div>
+		<div id="transition">
+		</div>
+		<div id="store">
+		</div>
+	</div>
+	<div id="bottombar">
+	</div>
+	<div id="actionbutton">
+	</div>
+	<div id="leftnav">
+	</div>
+	<div id="rightnav">
+	</div>
+	<div id="filter">
+	</div>
+	<div id="dialog">
+	</div>
+	<div id="overlay">
+	</div>
+
+	<!-- load javascript -->
+	<script src="cordova.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/etc/config.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/lib/libs.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/control/events.js"></script>
+	<script type="text/javascript">
+		<!-- start loading all libs -->
+		MCOW.Event.AddOnload(function() {MCOW.Lib.load();});
+		<!-- in app mode, start at fase 1 -->
+		MCOW.Event.AddOnload(function() { setTimeout(function(){MCOW.Event.loadFase1();}, 1000);});
+	</script>
 </body>
 </html>
