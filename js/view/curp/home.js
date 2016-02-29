@@ -15,7 +15,7 @@ var html = "";
 html = html + "<i data='/Curp/courseNew' class='mcow-touchable curp-link-data material-icons md-48'>&#xE147;</i>";
 MCOW.Util.setHTML("actionbutton",html);
 document.getElementById("actionbutton").classList.add("homeButton");
-document.getElementById("actionbutton").style.top = "26px";
+document.getElementById("actionbutton").style.top = "46px";
 document.getElementById("actionbutton").style.left = "80%";
 </script>
 

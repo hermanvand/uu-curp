@@ -22,7 +22,7 @@ var html = "";
 html = html + "<i class='mcow-touchable curp-header-right-open material-icons md-48'>&#xE147;</i>";
 MCOW.Util.setHTML("actionbutton",html);
 document.getElementById("actionbutton").classList.add("editButton");
-document.getElementById("actionbutton").style.top = "80px";
+document.getElementById("actionbutton").style.top = "100px";
 document.getElementById("actionbutton").style.right = "30px";
 document.getElementById("actionbutton").style.left = "auto";
 </script>

@@ -56,6 +56,8 @@
 
 #topbar {
 	/*height: 50px;*/
+	/* extra 20 for statusbar (plugin does not work om ipad...)*/
+	padding-top: 20px;
 	-webkit-flex: 0 1 50px;
 	flex: 0 1 50px;
 }
@@ -66,11 +68,13 @@
 	-webkit-flex: 1 1 auto;
 	flex: 1 1 auto;
 	margin: 0px;
-	margin-top: 50px;
+	/* extra 20 for statusbar (plugin does not work om ipad...)*/
+	margin-top: 70px;
 }
 
 #leftnavMenu {
 	padding:10px;
+	padding-top:30px;
 }
 #leftnavMenu ul {
     list-style-type: none;
@@ -87,6 +91,7 @@
 
 #rightnavMenu {
 	padding:10px;
+	padding-top:30px;
 	float:right;
 	background-color:#1eafd9;
 	border-left: solid black 1px;
